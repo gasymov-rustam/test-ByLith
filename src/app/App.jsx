@@ -5,9 +5,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Attributes, Gallery, PictureCard, Quantity } from '../components';
 // import 'react-toastify/scss/main.scss';
 // import 'react-toastify/dist/ReactToastify.css';
-import { Card, Counter, FlexJustify, HorizontalFlex, Img, Router, Variant } from '../shared';
+import { Card, Counter, FlexJustify, HorizontalFlex, Img, Variant } from '../shared';
 import { ListBox } from '../shared/ui/ListBox/ListBox';
 import { Text, TextSize } from '../shared/ui/Text/Text';
+
+import { Router } from './providers';
 
 const departments = [
   { id: 1, title: 'Marketing', contact: 'Durward Reynolds' },
@@ -598,7 +600,7 @@ export const App = () => {
   return (
     <>
       <Router />
-
+      {/* 
       <Attributes values={attr} variants={variants} />
       <ToastContainer
         position="bottom-right"
@@ -625,8 +627,7 @@ export const App = () => {
       />
 
       {/* <ListBox onChange={handleChange} items={departments} value={selectedPerson} label="Department" /> */}
-
-      <Quantity value={state} onChange={handle} />
+      {/* <Quantity value={state} onChange={handle} /> */}
       {/* <div style={{ width: 100, border: '1px solid red' }}> */}
       {/* </div> */}
     </>

@@ -27,6 +27,7 @@ export const Img = memo((props) => {
     isSpecialOffer = false,
     className,
     parentClassName,
+    isUsualImg = false,
     ...otherProps
   } = props;
 
@@ -46,7 +47,7 @@ export const Img = memo((props) => {
         />
       )}
       <img
-        src={createLink(src)}
+        src={isUsualImg ? src : createLink(src)}
         alt={alt}
         width={width}
         height={height}

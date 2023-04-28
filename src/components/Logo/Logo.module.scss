@@ -1,0 +1,41 @@
+@import '@/app/style/breakpoints.scss';
+
+.container {
+  position: relative;
+  width: 239px;
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding-top: 53px;
+  padding-bottom: 86px;
+
+  @include mobile {
+    width: 322px;
+    padding-bottom: 55px;
+  }
+}
+
+.logo {
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+  width: 248.8px;
+  height: 46px;
+}
+
+.square {
+  width: 154px;
+  height: 46px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #f9dfdf;
+}
+
+.text {
+  position: absolute;
+  bottom: -6px;
+  right: 24px;
+  font: var(--font-home-title);
+  font-size: var(--font-size-l);
+}

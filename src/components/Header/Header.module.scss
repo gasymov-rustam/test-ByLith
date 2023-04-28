@@ -1,0 +1,45 @@
+@import '@/app/style/breakpoints.scss';
+
+.header {
+  padding-top: calc(var(--padding-xxl) + 12px);
+  width: 100%;
+  background: var(--header-color);
+
+  & > div {
+    width: 90%;
+    max-width: 1250px;
+  }
+
+  @include mobile {
+    padding-top: calc(var(--padding-xxl) + 6px);
+  }
+}
+
+.divider {
+  margin: 0;
+  margin-top: calc(var(--margin-xl) + 6px);
+  border: 1px solid var(--divider-color);
+
+  @include mobile {
+    margin-top: calc(var(--margin-xl) + 1px);
+  }
+}
+
+.img {
+  width: 239px;
+  height: 29px;
+
+  @include mobile {
+    width: 322px;
+    height: 40px;
+  }
+}
+
+.homeLink {
+  font: var(--font-medium);
+  padding: var(--padding-l) 0;
+}
+
+.active {
+  color: var(--sale-color);
+}

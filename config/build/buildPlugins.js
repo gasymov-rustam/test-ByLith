@@ -1,6 +1,5 @@
 const { DefinePlugin, HotModuleReplacementPlugin, ProvidePlugin, ProgressPlugin } = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const CircularDependencyPlugin = require('circular-dependency-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -15,10 +14,6 @@ const buildPlugins = ({ paths, isDev }) => {
     new ProgressPlugin(),
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
-    }),
-    new CircularDependencyPlugin({
-      exclude: /node_modules/,
-      failOnError: false,
     }),
   ];
 

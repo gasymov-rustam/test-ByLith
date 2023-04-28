@@ -16,6 +16,7 @@
   --border-color: #c4c4c4;
   --select-border-color: #d5d5d5;
   --header-color: #f7fcfb;
+  --divider-color: #d7d7d7;
   --select-background: linear-gradient(to top, #f7fcfb, #fff);
   --button-background: linear-gradient(to top, #31a893, #34ceb3);
 
@@ -79,21 +80,6 @@
   --font-secondary-bold: var(--font-weight-xl) var(--font-size-m) / var(--font-line-m) var(--font-family-main);
   --font-header: var(--font-weight-l) var(--font-size-l) / var(--font-line-xs) var(--font-family-main);
   --font-home-title: var(--font-weight-l) var(--font-size-home-title) / var(--font-line-xs) var(--font-family-main);
-
-  /* m font size */
-  --font-size-m: 16px;
-  --font-line-sm: 24px;
-  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
-
-  /* l font size */
-  --font-size-l: 24px;
-  --font-line-l: 32px;
-  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
-
-  /* xl font size */
-  --font-size-xl: 32px;
-  --font-line-xl: 40px;
-  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
   /* breakpoints */
   --mobile-breakpoint: 640px;

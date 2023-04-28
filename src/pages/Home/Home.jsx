@@ -1,10 +1,13 @@
-import { Header } from '../../components';
+import { Header, Logo } from '../../components';
+
+import cls from './Home.module.scss';
 
 export const Home = () => {
   return (
-    <div>
+    <section className={cls.container}>
       <Header />
-      Home
-    </div>
+      <Logo />
+      <div className={cls.other}>Home</div>
+    </section>
   );
 };
