@@ -1,0 +1,34 @@
+@import '@/app/style/breakpoints.scss';
+
+.img {
+  margin-bottom: calc(var(--margin-m) * 1.5);
+}
+
+.price {
+  gap: var(--gap-m);
+
+  & > span:first-child {
+    text-decoration: line-through;
+  }
+
+  & > span:not(:first-child) {
+    color: var(--sale-color);
+  }
+
+  @include mobile {
+    span {
+      font-size: calc(var(--font-size-l) - 3px);
+      line-height: calc(var(--font-line-s) - 0.02);
+    }
+
+    font-size: calc(var(--font-size-l) - 3px);
+    line-height: calc(var(--font-line-s) - 0.02);
+  }
+}
+
+.name {
+  @include mobile {
+    font-size: var(--font-size-xl);
+    line-height: calc(var(--font-line-xs) - 0.1);
+  }
+}

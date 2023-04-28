@@ -1,0 +1,46 @@
+.img {
+  position: relative;
+}
+
+.opacity {
+  opacity: 0.5;
+}
+
+.desktopLittle {
+  width: 127px;
+  height: 127px;
+}
+
+.desktopDashboard {
+  width: 280px;
+  height: 280px;
+}
+
+.desktopBig {
+  width: 425px;
+  height: 425px;
+}
+
+.mobileDesktop {
+  width: 280px;
+  height: 280px;
+}
+
+.mobileLittle {
+  width: 132px;
+  height: 135px;
+}
+
+.mobileBig {
+  width: 100%;
+  height: 554px;
+}
+
+.special {
+  position: absolute;
+  left: 0;
+  top: 13px;
+  z-index: var(--z-index-1);
+  width: 171px;
+  height: 46px;
+}

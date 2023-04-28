@@ -1,0 +1,9 @@
+@import '@/app/style/breakpoints.scss';
+
+.quantity {
+  padding-left: var(--padding-xl);
+
+  @include mobile {
+    padding-left: 44px;
+  }
+}

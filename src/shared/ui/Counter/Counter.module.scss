@@ -1,0 +1,27 @@
+.counter {
+  border: 0.3px solid var(--border-color);
+  border-radius: var(--counter-border-radius);
+  width: 85px;
+  height: 40px;
+  font-weight: var(--font-weight-s);
+  font-size: 16px;
+  line-height: var(--font-line-xl);
+}
+
+.btn {
+  width: 17px;
+  height: 17px;
+  padding: var(--padding-s);
+  border: 1px solid var(--select-border-color);
+  background-image: var(--select-background);
+  display: flex;
+  line-height: normal;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-duration-regular);
+
+  &:hover {
+    border: 1px solid var(--text-secondary-color);
+  }
+}

@@ -1,0 +1,12 @@
+@import './variables';
+@import './resets';
+@import './breakpoints.scss';
+@import './fonts';
+@import 'react-toastify/scss/main.scss';
+
+body {
+  font-family: var(--font-family-main);
+  font: var(--font-regular);
+  color: var(--text-main-color);
+  background-color: var(--main-color);
+}

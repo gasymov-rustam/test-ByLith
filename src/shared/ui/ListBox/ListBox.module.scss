@@ -1,0 +1,99 @@
+@import '@/app/style/breakpoints.scss';
+
+.wrapper {
+  width: fit-content;
+  position: relative;
+}
+
+.btn {
+  width: 290px;
+  height: 40px;
+  padding-left: var(--padding-xl);
+  padding-right: var(--padding-l);
+  cursor: pointer;
+  border: 1px solid var(--select-border-color);
+  background-image: var(--select-background);
+  transition: var(--transition-duration-regular);
+  z-index: 1000;
+
+  &:hover {
+    background: var(--hovered-select-background);
+  }
+
+  &:focus {
+    outline: 1px solid var(--text-main-color);
+  }
+
+  @include mobile {
+    width: 277px;
+    height: 80px;
+    padding-left: 27px;
+    padding-right: 10px;
+  }
+}
+
+.textOverflow {
+  @include mobile {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.options {
+  z-index: var(--z-index-2);
+  border: 1px solid var(--select-border-color);
+  position: absolute;
+  width: 290px;
+  background: var(--header-color);
+  box-shadow: 4px 4px 8px var(--header-color);
+  outline: 1px solid var(--text-main-color);
+  overflow: hidden;
+
+  & li {
+    padding-left: var(--padding-xl);
+    cursor: pointer;
+  }
+
+  @include mobile {
+    width: 277px;
+
+    & li {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-left: 27px;
+    }
+  }
+}
+
+.text {
+  @include mobile {
+    font-size: var(--font-size-xl);
+  }
+}
+
+.active {
+  background: var(--hovered-select-background);
+  box-shadow: 4px 4px 8px var(--header-color);
+}
+
+.transition {
+  transition-duration: var(--transition-duration-regular);
+  transform: translateX(-100%);
+}
+
+.dropdownEnter,
+.dropdownLeave {
+  transition: opacity var(--transition-duration-regular) ease-in-out;
+}
+
+.dropdownEnterFrom,
+.dropdownLeaveTo {
+  opacity: 0;
+}
+
+.dropdownEnterTo,
+.dropdownLeaveFrom {
+  opacity: 1;
+}

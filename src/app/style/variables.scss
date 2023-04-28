@@ -1,0 +1,114 @@
+:root {
+  --skeleton-color: rgb(197 191 191);
+  --skeleton-shadow: rgba(0 0 0 / 20%);
+
+  /* card width */
+  --all-cards-width: 280px;
+  --card-main-product-width: 425px;
+  --card-secondary-product-width: 127px;
+  --card-secondary-mobile-width: 132px;
+
+  /* background */
+  --main-color: #fff;
+  --text-main-color: #363636;
+  --text-secondary-color: #2c2b2a;
+  --sale-color: #31a893;
+  --border-color: #c4c4c4;
+  --select-border-color: #d5d5d5;
+  --header-color: #f7fcfb;
+  --select-background: linear-gradient(to top, #f7fcfb, #fff);
+  --button-background: linear-gradient(to top, #31a893, #34ceb3);
+
+  /* hovered background */
+  --hovered-select-background: #adebde;
+
+  /* focused background */
+  --focused-select-border: #adebde;
+
+  /* gap */
+  --gap-xs: 9px;
+  --gap-s: 17px;
+  --gap-m: 22px;
+  --gap-l: 27px;
+  --gap-xl: 32px;
+  --gap-xxl: 42px;
+
+  /* margins */
+  --margin-s: 4px;
+  --margin-m: 8px;
+  --margin-l: 16px;
+  --margin-xl: 32px;
+
+  /* paddings */
+  --padding-s: 4px;
+  --padding-m: 8px;
+  --padding-l: 16px;
+  --padding-xl: 22px;
+  --padding-xxl: 32px;
+
+  /* font family */
+  --font-family-main: 'Roboto', sans-serif;
+
+  /* font line-height */
+  --font-line-xs: 1.12;
+  --font-line-s: 1.24;
+  --font-line-m: 1.53;
+  --font-line-l: 1.72;
+  --font-line-xl: 1.94;
+  --font-line-xxl: 2.07;
+
+  /* font size */
+  --font-size-xs: 15px;
+  --font-size-s: 18px;
+  --font-size-m: 20px;
+  --font-size-l: 28px;
+  --font-size-xl: 30px;
+  --font-size-xxl: 36px;
+  --font-size-home-title: 25px;
+
+  /* font weight */
+  --font-weight-s: 300;
+  --font-weight-m: 400;
+  --font-weight-l: 500;
+  --font-weight-xl: 700;
+
+  --font-light: var(--font-weight-s) var(--font-size-xs) / var(--font-line-xxl) var(--font-family-main);
+  --font-regular: var(--font-weight-m) var(--font-size-xs) / var(--font-line-xxl) var(--font-family-main);
+  --font-medium: var(--font-weight-l) var(--font-size-xs) / var(--font-line-xxl) var(--font-family-main);
+  --font-primary-bold: var(--font-weight-xl) var(--font-size-s) / var(--font-line-l) var(--font-family-main);
+  --font-secondary-bold: var(--font-weight-xl) var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+  --font-header: var(--font-weight-l) var(--font-size-l) / var(--font-line-xs) var(--font-family-main);
+  --font-home-title: var(--font-weight-l) var(--font-size-home-title) / var(--font-line-xs) var(--font-family-main);
+
+  /* m font size */
+  --font-size-m: 16px;
+  --font-line-sm: 24px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+
+  /* l font size */
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  /* xl font size */
+  --font-size-xl: 32px;
+  --font-line-xl: 40px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
+  /* breakpoints */
+  --mobile-breakpoint: 640px;
+  --tablet-breakpoint: 768px;
+  --minDesktop-breakpoint: 992px;
+
+  /* border-radius */
+  --button-border-radius: 4px;
+  --counter-border-radius: 5px;
+  --card-border-radius: 0px;
+
+  /* z-index */
+  --z-index-1: 10;
+  --z-index-2: 20;
+
+  /* transition-duration */
+  --transition-duration-regular: 400ms;
+}

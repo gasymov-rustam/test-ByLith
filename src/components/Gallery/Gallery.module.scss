@@ -1,0 +1,34 @@
+@import '@/app/style/breakpoints.scss';
+
+.wrapper {
+  width: var(--card-main-product-width);
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.otherPicture {
+  width: var(--card-secondary-product-width);
+  height: var(--card-secondary-product-width);
+  cursor: pointer;
+
+  @include mobile {
+    width: var(--card-secondary-mobile-width);
+    height: calc(var(--card-secondary-mobile-width) + 3px);
+  }
+}
+
+.mainImg {
+  width: var(--card-main-product-width);
+  height: var(--card-main-product-width);
+
+  @include mobile {
+    width: 100%;
+    height: 554px;
+  }
+}
+
+.parentMainImage {
+  width: 100%;
+}

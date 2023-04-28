@@ -1,0 +1,19 @@
+.button {
+  width: 100%;
+  background-image: var(--button-background);
+  transition: var(--transition-duration-regular);
+  color: var(--main-color);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
