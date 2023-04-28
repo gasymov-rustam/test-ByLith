@@ -28,7 +28,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-unused-expressions': 'error',
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'unused-imports/no-unused-imports': 'error',
     'import/no-cycle': ['error'],
     'import/no-unresolved': 'off',

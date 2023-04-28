@@ -4,6 +4,14 @@
   margin-bottom: calc(var(--margin-m) * 1.5);
 }
 
+.card {
+  margin-bottom: 97px;
+  cursor: pointer;
+
+  @include mobile {
+  }
+}
+
 .price {
   gap: var(--gap-m);
 

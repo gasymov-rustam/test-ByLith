@@ -600,8 +600,6 @@ export const App = () => {
   return (
     <>
       <Router />
-      {/* 
-      <Attributes values={attr} variants={variants} />
       <ToastContainer
         position="bottom-right"
         autoClose={5000}
@@ -614,6 +612,8 @@ export const App = () => {
         pauseOnHover
         theme="light"
       />
+      {/* 
+      <Attributes values={attr} variants={variants} />
 
       <Gallery images={images} onChange={handleChangeImage} />
 

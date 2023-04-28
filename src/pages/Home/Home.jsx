@@ -1,4 +1,4 @@
-import { Header, Loader, LoaderProductCard, Logo } from '../../components';
+import { AllCards, Header, Logo } from '../../components';
 
 import cls from './Home.module.scss';
 
@@ -8,7 +8,9 @@ export const Home = () => {
       <Header />
       <Logo />
       <div className={cls.other}>
-        <LoaderProductCard />
+        <AllCards />
+        {/* <LoaderProductCard /> */}
+        HEllo World
       </div>
     </section>
   );

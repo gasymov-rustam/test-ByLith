@@ -4,7 +4,7 @@ import { Home, Product } from '../../../pages';
 
 export const Paths = {
   HOME: '/',
-  PRODUCT: '/product/:id',
+  PRODUCT: '/product/',
   ERROR: '*',
 };
 
@@ -14,7 +14,7 @@ const routes = [
     component: Home,
   },
   {
-    path: Paths.PRODUCT,
+    path: Paths.PRODUCT + ':id',
     component: Product,
   },
   {

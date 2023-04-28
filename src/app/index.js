@@ -1,2 +1,2 @@
 export { App } from './App';
-export { ErrorBoundary, Paths, Router } from './providers';
+export { ErrorBoundary, Paths, Router, ContextProvider, useGlobalContext } from './providers';

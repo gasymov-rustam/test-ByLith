@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 
-import { Header } from '../../components';
+import { Header, ProductContent } from '../../components';
 
 export const Product = () => {
   const { id } = useParams();
@@ -8,6 +8,7 @@ export const Product = () => {
     <div>
       <Header />
       Product {id}
+      <ProductContent id={id} />
     </div>
   );
 };
