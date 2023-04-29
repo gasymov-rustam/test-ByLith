@@ -1,52 +1,64 @@
+import axios from 'axios';
 import { memo, useEffect, useState } from 'react';
 
 import { useGlobalContext } from '../../app';
 import { Button, FlexGap, FlexJustify, HorizontalFlex, Price, Text, TextSize, VerticalFlex } from '../../shared';
 import { useFetch } from '../../shared/hooks';
 import { Attributes } from '../Attributes';
+import { Error } from '../Error';
 import { Gallery } from '../Gallery';
+import { LoaderProductCard } from '../Loaders';
 import { Quantity } from '../Quantity';
 
 import cls from './ProductContent.module.scss';
 
 export const ProductContent = memo(({ id }) => {
-  const { data, error, isLoading } = useFetch({ url: `https://fedtest.bylith.com/api/catalog/get?id=${id}` });
+  const { isLoading, error, fetchUpdateData } = useFetch({
+    url: `https://fedtest.bylith.com/api/catalog/get?ids=${id}`,
+  });
   const [isDisabled, setIsDisabled] = useState(true);
   const { methods, state } = useGlobalContext();
   const product = state?.product?.data;
-  const labels = state?.labels;
   const count = state?.productCount;
   const currentTitle = state?.variantTitle;
   const variantId = state?.variantId;
   const images = product?.images;
   const title = currentTitle ?? product?.title;
   const description = product?.description;
-  const attributes = product?.attributes;
   const price = state.variantPrice;
-  const isSpecialOffer = price ? false : !!(product?.max_price - product?.min_price);
+  const isSpecialOffer = !!(product?.max_price - product?.min_price);
 
   useEffect(() => {
-    // const data = JSON.parse(window.localStorage.getItem('product'));
-    methods.setLoading(isLoading);
+    const data = JSON.parse(window.localStorage.getItem('product'));
+    methods.setLoading(false);
     methods.setProduct(data);
-    methods.setError(error);
+    methods.setError(null);
     window.localStorage.setItem('product', JSON.stringify(data));
-  }, [data, error, isLoading, methods]);
+  }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const productAddToCart = {
-      id: variantId ?? product?.id,
+      variant_id: +variantId,
       quantity: count,
     };
 
-    console.log('🚀 => 👍 ==>> ProductContent ==>> Line #42 ==>> ', productAddToCart);
+    await fetchUpdateData({
+      url: 'https://fedtest.bylith.com/api/cart/adds',
+      body: productAddToCart,
+    });
   };
 
   useEffect(() => {
-    const isDisabled = attributes?.length !== labels?.length;
+    setIsDisabled(!variantId);
+  }, [variantId]);
 
-    setIsDisabled(isDisabled);
-  }, [labels, attributes]);
+  if (isLoading) {
+    return <LoaderProductCard />;
+  }
+
+  if (error && !product) {
+    return <Error />;
+  }
 
   return (
     <HorizontalFlex max={false} className={cls.wrapper} gap={FlexGap.XL}>
@@ -56,10 +68,10 @@ export const ProductContent = memo(({ id }) => {
         <Text value={title} as="h2" className={cls.title} />
 
         <Price
-          price={price ?? product?.max_price}
+          price={product?.max_price}
           as="h3"
           isSpecialOffer={isSpecialOffer}
-          relevantPrice={product?.min_price}
+          relevantPrice={price ?? product?.min_price}
           className={cls.price}
         />
         <Text value={description} as="p" className={cls.text} />

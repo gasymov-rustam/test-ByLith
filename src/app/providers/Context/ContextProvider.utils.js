@@ -21,13 +21,6 @@ export const reducer = {
     state.labels = state.labels.filter((item) => item.attribute_id !== payload.attribute_id);
     state.labels.push(payload);
   },
-  resetLabels(state) {
-    state.labels = [];
-    state.variantImage = null;
-    state.variantPrice = null;
-    state.variantTitle = null;
-    state.variantId = null;
-  },
   setImages(state, payload) {
     const newImages = state.product?.data?.images.filter((image) => image.url !== payload.url);
     newImages.unshift(payload);
@@ -44,7 +37,6 @@ export const reducer = {
     }, []);
 
     state.variantPrice = payload.price;
-    state.variantImage = payload.image;
     state.variantTitle = payload.title;
     state.variantId = payload.id;
     this.setImages(state, payload.image);

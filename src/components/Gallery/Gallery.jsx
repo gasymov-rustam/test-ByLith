@@ -9,12 +9,10 @@ import cls from './Gallery.module.scss';
 export const Gallery = memo(({ images, className }) => {
   const { methods, state } = useGlobalContext();
   const product = state?.product?.data;
-  const currentImage = state?.variantImage;
-  const isSpecialOffer = currentImage ? false : !!(product?.max_price - product?.min_price);
+  const isSpecialOffer = !!(product?.max_price - product?.min_price);
 
   const handleClick = (value, index) => () => {
     methods.setImages(value, index);
-    methods.resetLabels();
   };
 
   if (!images?.length) return null;

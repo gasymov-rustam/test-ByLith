@@ -11,11 +11,6 @@ export const Attributes = memo(({ className }) => {
   const values = state?.product?.data?.attributes;
 
   const handleChange = (e, parentId) => {
-    setSelectedVariants({});
-
-    if (Object.keys(selectedVariants).length) {
-      methods.resetLabels();
-    }
     methods.setLabels({ attribute_id: parentId, label_id: e.id });
   };
 
