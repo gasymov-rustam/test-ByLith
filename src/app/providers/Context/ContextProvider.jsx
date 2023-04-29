@@ -24,24 +24,24 @@ export const useGlobalContext = () => useContext(StateContext);
 
 export const ContextProvider = ({ children }) => {
   const [state, methods] = useMethods({ initialState, methods: reducer });
+  const { data, error, isLoading } = useFetch({ url: 'https://fedtest.bylith.com/api/Catalog/GetAll' });
+
+  // useEffect(() => {
+  //   const data = JSON.parse(window.localStorage.getItem('data'));
+  //   methods.setLoading(false);
+  //   methods.setData(data);
+  //   methods.setError(null);
+  //   window.localStorage.setItem('data', JSON.stringify(data));
+  // }, []);
   // const { data, error, isLoading } = useFetch({ url: 'https://fedtest.bylith.com/api/Catalog/GetAll' });
 
   useEffect(() => {
-    const data = JSON.parse(window.localStorage.getItem('data'));
-    methods.setLoading(false);
+    // console.log('🚀 => 👍 ==>> ContextProvider ==>> Line #27 ==>> ', { data, error, isLoading });
+    methods.setLoading(isLoading);
     methods.setData(data);
-    methods.setError(null);
+    methods.setError(error);
     window.localStorage.setItem('data', JSON.stringify(data));
-  }, []);
-  // const { data, error, isLoading } = useFetch({ url: 'https://fedtest.bylith.com/api/Catalog/GetAll' });
-
-  // useEffect(() => {
-  //   console.log('🚀 => 👍 ==>> ContextProvider ==>> Line #27 ==>> ', { data, error, isLoading });
-  //   methods.setLoading(isLoading);
-  //   methods.setData(data);
-  //   methods.setError(error);
-  //   window.localStorage.setItem('data', JSON.stringify(data));
-  // }, [data, error, isLoading, methods]);
+  }, [data, error, isLoading, methods]);
 
   const value = useMemo(() => ({ state, methods }), [state, methods]);
 

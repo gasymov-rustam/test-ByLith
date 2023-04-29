@@ -13,8 +13,8 @@ import { Quantity } from '../Quantity';
 import cls from './ProductContent.module.scss';
 
 export const ProductContent = memo(({ id }) => {
-  const { isLoading, error, fetchUpdateData } = useFetch({
-    url: `https://fedtest.bylith.com/api/catalog/get?ids=${id}`,
+  const { data, isLoading, error, fetchUpdateData } = useFetch({
+    url: `https://fedtest.bylith.com/api/catalog/get?id=${id}`,
   });
   const [isDisabled, setIsDisabled] = useState(true);
   const { methods, state } = useGlobalContext();
@@ -29,12 +29,12 @@ export const ProductContent = memo(({ id }) => {
   const isSpecialOffer = !!(product?.max_price - product?.min_price);
 
   useEffect(() => {
-    const data = JSON.parse(window.localStorage.getItem('product'));
-    methods.setLoading(false);
+    // const data = JSON.parse(window.localStorage.getItem('product'));
+    methods.setLoading(isLoading);
     methods.setProduct(data);
-    methods.setError(null);
+    methods.setError(error);
     window.localStorage.setItem('product', JSON.stringify(data));
-  }, []);
+  }, [data, error, isLoading, methods]);
 
   const handleSubmit = async () => {
     const productAddToCart = {
@@ -43,7 +43,7 @@ export const ProductContent = memo(({ id }) => {
     };
 
     await fetchUpdateData({
-      url: 'https://fedtest.bylith.com/api/cart/adds',
+      url: 'https://fedtest.bylith.com/api/cart/add',
       body: productAddToCart,
     });
   };
