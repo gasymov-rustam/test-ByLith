@@ -25,3 +25,11 @@
     border: 1px solid var(--text-secondary-color);
   }
 }
+
+.disabled {
+  cursor: auto;
+
+  &:hover {
+    border: 1px solid var(--select-border-color);
+  }
+}

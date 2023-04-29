@@ -4,6 +4,21 @@ import { toast } from 'react-toastify';
 
 import { useIsMounted } from '../useIsMounted';
 
+const createMessage = (status) => {
+  switch (status) {
+    case 400:
+      return 'Bad request!';
+    case 404:
+      return 'Not found!';
+    case 500:
+      return 'Internal server error!';
+    case 501:
+      return 'Not implemented!';
+    default:
+      return 'Something went wrong!';
+  }
+};
+
 export const useFetch = ({
   url,
   method = 'GET',
@@ -39,8 +54,10 @@ export const useFetch = ({
         if (isAxiosError(error)) {
           console.warn('There are some errors during executing request!', error.response?.data);
           setResponse((prev) => ({ ...prev, error: error.response?.data }));
+
+          const message = createMessage(error.response?.status);
+          toast.error(message);
         }
-        toast.error('Something went wrong!');
       } finally {
         isFetchingRef.current = true;
         setResponse((prev) => ({ ...prev, isLoading: false }));

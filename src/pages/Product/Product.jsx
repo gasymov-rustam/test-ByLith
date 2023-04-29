@@ -1,16 +1,14 @@
 import { useParams } from 'react-router-dom';
 
-import { Header, ProductContent } from '../../components';
+import { Layout, ProductContent } from '../../components';
 
 const ProductList = () => {
   const { id } = useParams();
 
   return (
-    <div>
-      <Header />
-      Product {id}
+    <Layout>
       <ProductContent id={id} />
-    </div>
+    </Layout>
   );
 };
 

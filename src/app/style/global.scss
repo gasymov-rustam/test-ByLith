@@ -14,3 +14,16 @@ body {
 .border {
   border: 1px solid red;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.otherInContainer {
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+  flex: 1;
+}

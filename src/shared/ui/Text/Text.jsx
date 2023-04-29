@@ -14,11 +14,13 @@ export const TextSize = {
 };
 
 export const Text = memo((props) => {
-  const { className, value, textSize = TextSize.REGULAR, ...otherProps } = props;
+  const { className, value, textSize = TextSize.REGULAR, as = 'span', ...otherProps } = props;
+
+  const Tag = as;
 
   return (
-    <span className={clsx(className, cls[textSize])} {...otherProps}>
+    <Tag className={clsx(className, cls[textSize])} {...otherProps}>
       {value}
-    </span>
+    </Tag>
   );
 });

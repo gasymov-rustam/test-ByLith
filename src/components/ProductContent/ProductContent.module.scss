@@ -1,0 +1,43 @@
+@import '@/app/style/breakpoints.scss';
+
+.wrapper {
+  margin-top: 69px;
+}
+.description,
+.selects {
+  padding-top: 7px;
+  min-width: 200px;
+  max-width: 400px;
+  flex-grow: 1;
+  align-self: stretch;
+}
+
+.title {
+  font: var(--font-header);
+  font-weight: var(--font-weight-xl);
+}
+
+.price {
+  font-size: var(--font-size-s);
+  line-height: var(--font-line-l);
+  font-weight: var(--font-weight-l);
+  margin-top: calc(var(--margin-m) + var(--margin-s));
+}
+
+.text {
+  font-size: var(--font-size-xs);
+  line-height: 1.67;
+  font-weight: var(--font-weight-s);
+  margin-top: calc(var(--margin-xl) + 6px);
+}
+
+.selects {
+  max-width: calc(290px + var(--padding-xl));
+  padding-left: var(--padding-xl);
+  gap: 32px;
+
+  @include mobile {
+    max-width: calc(290px + 44px);
+    padding-left: 44px;
+  }
+}

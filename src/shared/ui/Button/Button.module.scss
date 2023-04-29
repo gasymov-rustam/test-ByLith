@@ -1,5 +1,6 @@
 .button {
   width: 100%;
+  min-height: 51px;
   background-image: var(--button-background);
   transition: var(--transition-duration-regular);
   color: var(--main-color);

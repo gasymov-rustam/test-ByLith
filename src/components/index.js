@@ -9,3 +9,4 @@ export * from './Error';
 export * from './AllCards';
 export * from './ProductContent';
 export * from './Pagination';
+export * from './Layout';

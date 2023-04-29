@@ -10,7 +10,7 @@ import { Text, TextSize } from '../Text';
 import cls from './ListBox.module.scss';
 
 const createName = (items, label, value, isMobile) => {
-  const str = items.find((item) => item.id === value?.id)?.title;
+  const str = items.find((item) => item.id === value?.label_id)?.title;
   return str ?? `${isMobile ? label : `Choose ${label}`}`;
 };
 
@@ -30,7 +30,7 @@ export const ListBox = (props) => {
   };
 
   return (
-    <Listbox value={items} as="div" onChange={handleChange} className={cls.wrapper}>
+    <Listbox value={items} as="div" onChange={handleChange} className={clsx(cls.wrapper, className)}>
       <Listbox.Button className={cls.btn}>
         <HorizontalFlex justify={FlexJustify.BETWEEN} align={FlexAlign.CENTER}>
           <Text

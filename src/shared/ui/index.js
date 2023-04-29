@@ -6,3 +6,4 @@ export * from './Counter';
 export * from './Img';
 export * from './ListBox';
 export * from './Card';
+export * from './Price';

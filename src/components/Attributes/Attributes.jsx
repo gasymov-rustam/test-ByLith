@@ -1,46 +1,62 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
+import { useGlobalContext } from '../../app';
 import { ListBox } from '../../shared';
 
-export const Attributes = memo(({ values, variants }) => {
-  const [selectedValue, setSelectedValue] = useState({});
+export const Attributes = memo(({ className }) => {
   const [selectedVariants, setSelectedVariants] = useState({});
+  const { state, methods } = useGlobalContext();
+  const { labels } = state;
+  const variants = state?.product?.data?.variants;
+  const values = state?.product?.data?.attributes;
 
   const handleChange = (e, parentId) => {
-    setSelectedValue((prev) => ({ ...prev, [parentId]: e }));
-    // setImage(e.image.url);
-    // setPrice(e.price);
     setSelectedVariants({});
+
+    if (Object.keys(selectedVariants).length) {
+      methods.resetLabels();
+    }
+    methods.setLabels({ attribute_id: parentId, label_id: e.id });
   };
 
   const handleVariantChange = (e) => {
     setSelectedVariants(e);
-
-    setSelectedValue(() => {
-      return e.labels.reduce((accum, item) => {
-        const attribute = values.find((value) => value.id === item.attribute_id);
-        const label = attribute.labels.find((value) => value.id === item.label_id);
-        accum[attribute.id] = label;
-
-        return accum;
-      }, {});
-    });
+    methods.setWithResetLabels(e);
   };
+
+  useEffect(() => {
+    if (!labels?.length) {
+      setSelectedVariants({});
+    }
+  }, [labels]);
 
   return (
     <>
-      {values?.map((value) => {
-        return (
-          <ListBox
-            items={value.labels}
-            label={value.title}
-            value={selectedValue[value.id]}
-            parentId={value.id}
-            onChange={handleChange}
-          />
-        );
-      })}
-      <ListBox items={variants} label="Variants" value={selectedVariants} onChange={handleVariantChange} />
+      {!!values?.length &&
+        values?.map((value) => {
+          const selectedValue = labels?.find((label) => label.attribute_id === value.id);
+
+          return (
+            <ListBox
+              key={value.id}
+              items={value.labels}
+              label={value.title}
+              value={selectedValue}
+              parentId={value.id}
+              onChange={handleChange}
+              className={className}
+            />
+          );
+        })}
+      {variants?.length && (
+        <ListBox
+          items={variants}
+          label="Variants"
+          value={selectedVariants}
+          onChange={handleVariantChange}
+          className={className}
+        />
+      )}
     </>
   );
 });
