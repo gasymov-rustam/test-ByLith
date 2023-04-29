@@ -1,0 +1,24 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: calc(2 * var(--padding-xxl));
+  gap: var(--gap-xs);
+}
+
+.pageLink {
+  opacity: 0.5;
+  cursor: pointer;
+  font: var(--font-secondary-bold);
+}
+
+.previous {
+  opacity: 1;
+  cursor: pointer;
+  font: var(--font-secondary-bold);
+}
+
+.disabled {
+  cursor: auto;
+  opacity: 0.5;
+}

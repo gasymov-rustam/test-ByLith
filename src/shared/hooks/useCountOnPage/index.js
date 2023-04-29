@@ -1,0 +1,1 @@
+export { useCountOnPage } from './useCountOnPage';

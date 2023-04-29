@@ -11,4 +11,7 @@ export const reducer = {
   setProduct: (state, payload) => {
     state.product = payload;
   },
+  setCurrentPage: (state, payload) => {
+    state.currentPage = payload;
+  },
 };

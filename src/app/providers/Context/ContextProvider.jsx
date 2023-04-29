@@ -11,6 +11,7 @@ const initialState = {
   currentPrice: 0,
   cart: {},
   totalPrice: 0,
+  currentPage: 1,
   loading: false,
   error: null,
 };

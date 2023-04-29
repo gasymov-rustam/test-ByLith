@@ -7,6 +7,7 @@ export const FlexJustify = {
   CENTER: 'center',
   END: 'end',
   BETWEEN: 'between',
+  AROUND: 'around',
 };
 
 export const FlexWrap = {
@@ -39,6 +40,7 @@ const justifyClasses = {
   center: cls.justifyCenter,
   end: cls.justifyEnd,
   between: cls.justifyBetween,
+  around: cls.justifyAround,
 };
 
 const alignClasses = {
