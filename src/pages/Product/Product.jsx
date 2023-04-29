@@ -2,8 +2,9 @@ import { useParams } from 'react-router-dom';
 
 import { Header, ProductContent } from '../../components';
 
-export const Product = () => {
+const ProductList = () => {
   const { id } = useParams();
+
   return (
     <div>
       <Header />
@@ -12,3 +13,5 @@ export const Product = () => {
     </div>
   );
 };
+
+export default ProductList;
