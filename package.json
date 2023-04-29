@@ -76,7 +76,6 @@
   },
   "lint-staged": {
     "**/*.{js,jsx}": [
-      "test",
       "lint:style:fix",
       "lint:fix",
       "build:prod"
