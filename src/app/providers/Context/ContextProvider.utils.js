@@ -1,4 +1,8 @@
 export const reducer = {
+  addToCart(state, payload) {
+    state.cart.push(payload);
+    window.localStorage.setItem('cart', JSON.stringify(state.cart));
+  },
   setLoading(state, payload) {
     state.isLoading = payload;
   },

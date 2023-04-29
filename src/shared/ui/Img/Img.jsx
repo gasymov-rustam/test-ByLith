@@ -31,8 +31,6 @@ export const Img = memo((props) => {
     ...otherProps
   } = props;
 
-  const mod = { [cls.opacity]: isSpecialOffer };
-
   return (
     <div className={clsx(cls.img, parentClassName)}>
       {isSpecialOffer && (
@@ -53,7 +51,7 @@ export const Img = memo((props) => {
         height={height}
         decoding={decoding}
         loading={loading}
-        className={clsx(className, mod, cls[size])}
+        className={clsx(className, cls[size])}
         {...otherProps}
       />
     </div>

@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 
 import { useMobile } from '../useMobile/useMobile';
 

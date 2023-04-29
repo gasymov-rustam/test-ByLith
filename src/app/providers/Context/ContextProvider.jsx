@@ -1,6 +1,6 @@
-import { createContext, useContext, useEffect, useMemo } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 
-import { useFetch, useMethods } from '../../../shared/hooks';
+import { useMethods } from '../../../shared/hooks';
 
 import { reducer } from './ContextProvider.utils';
 
@@ -11,7 +11,7 @@ const initialState = {
   variantTitle: null,
   variantId: null,
   labels: [],
-  cart: {},
+  cart: JSON.parse(window.localStorage.getItem('cart')) ?? [],
   productCount: 1,
   currentPage: 1,
   loading: false,
@@ -24,24 +24,6 @@ export const useGlobalContext = () => useContext(StateContext);
 
 export const ContextProvider = ({ children }) => {
   const [state, methods] = useMethods({ initialState, methods: reducer });
-  const { data, error, isLoading } = useFetch({ url: 'https://fedtest.bylith.com/api/Catalog/GetAll' });
-
-  // useEffect(() => {
-  //   const data = JSON.parse(window.localStorage.getItem('data'));
-  //   methods.setLoading(false);
-  //   methods.setData(data);
-  //   methods.setError(null);
-  //   window.localStorage.setItem('data', JSON.stringify(data));
-  // }, []);
-  // const { data, error, isLoading } = useFetch({ url: 'https://fedtest.bylith.com/api/Catalog/GetAll' });
-
-  useEffect(() => {
-    // console.log('🚀 => 👍 ==>> ContextProvider ==>> Line #27 ==>> ', { data, error, isLoading });
-    methods.setLoading(isLoading);
-    methods.setData(data);
-    methods.setError(error);
-    window.localStorage.setItem('data', JSON.stringify(data));
-  }, [data, error, isLoading, methods]);
 
   const value = useMemo(() => ({ state, methods }), [state, methods]);
 

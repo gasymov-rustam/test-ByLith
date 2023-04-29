@@ -1,11 +1,17 @@
 import { Suspense } from 'react';
 
-import { LoaderProductCard } from '../../components';
+import { Layout, LoaderProductCard } from '../../components';
 
 import { ProductAsync } from './ProductAsync';
 
 export const Product = () => (
-  <Suspense fallback={<LoaderProductCard />}>
+  <Suspense
+    fallback={
+      <Layout>
+        <LoaderProductCard />
+      </Layout>
+    }
+  >
     <ProductAsync />
   </Suspense>
 );

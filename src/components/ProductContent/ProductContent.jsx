@@ -1,8 +1,7 @@
-import axios from 'axios';
 import { memo, useEffect, useState } from 'react';
 
 import { useGlobalContext } from '../../app';
-import { Button, FlexGap, FlexJustify, HorizontalFlex, Price, Text, TextSize, VerticalFlex } from '../../shared';
+import { Button, FlexGap, HorizontalFlex, Price, Text, TextSize, VerticalFlex } from '../../shared';
 import { useFetch } from '../../shared/hooks';
 import { Attributes } from '../Attributes';
 import { Error } from '../Error';
@@ -29,12 +28,12 @@ export const ProductContent = memo(({ id }) => {
   const isSpecialOffer = !!(product?.max_price - product?.min_price);
 
   useEffect(() => {
-    // const data = JSON.parse(window.localStorage.getItem('product'));
-    methods.setLoading(isLoading);
+    methods.setLoading(error);
     methods.setProduct(data);
     methods.setError(error);
     window.localStorage.setItem('product', JSON.stringify(data));
-  }, [data, error, isLoading, methods]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, error, isLoading]);
 
   const handleSubmit = async () => {
     const productAddToCart = {
@@ -46,6 +45,8 @@ export const ProductContent = memo(({ id }) => {
       url: 'https://fedtest.bylith.com/api/cart/add',
       body: productAddToCart,
     });
+
+    methods.addToCart(productAddToCart)
   };
 
   useEffect(() => {
