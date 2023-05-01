@@ -10,7 +10,8 @@ import { Text, TextSize } from '../Text';
 import cls from './ListBox.module.scss';
 
 const createName = (items, label, value, isMobile) => {
-  const str = items.find((item) => item.id === value?.label_id)?.title;
+  const str = items.find((item) => item.id === value)?.title;
+
   return str ?? `${isMobile ? label : `Choose ${label}`}`;
 };
 

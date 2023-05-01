@@ -21,28 +21,39 @@ export const reducer = {
   setProductCount(state, payload) {
     state.productCount = payload;
   },
-  setLabels(state, payload) {
-    state.labels = state.labels.filter((item) => item.attribute_id !== payload.attribute_id);
-    state.labels.push(payload);
-  },
   setImages(state, payload) {
     const newImages = state.product?.data?.images.filter((image) => image.url !== payload.url);
     newImages.unshift(payload);
 
     state.product.data.images = newImages;
   },
-  setWithResetLabels(state, payload) {
-    state.labels = payload.labels.reduce((accum, item) => {
-      const attribute = state?.product?.data?.attributes.find((value) => value.id === item.attribute_id);
-      const label = attribute.labels.find((value) => value.id === item.label_id);
-      accum.push({ attribute_id: attribute.id, label_id: label.id });
+  setVariant(state, payload) {
+    if (payload) {
+      state.variant = payload;
+    }
 
-      return accum;
-    }, []);
+    if (payload?.image) {
+      this.setImages(state, payload?.image);
+    }
+  },
+  setLabels(state, payload) {
+    if (payload.attribute_id === Object.keys(state.labels)[0]) {
+      this.setResetLabels(state);
+      this.variant = null;
+    }
+    state.labels[payload.attribute_id] = payload.label_id;
+    const attribute = state.product?.data?.attributes.find((item) => item.id === payload.attribute_id);
+    const label = attribute.labels.find((value) => value.id === payload.label_id);
+    const image = state.product?.data?.images.find((item) => item.title.includes(label.title.toLowerCase()));
 
-    state.variantPrice = payload.price;
-    state.variantTitle = payload.title;
-    state.variantId = payload.id;
-    this.setImages(state, payload.image);
+    if (image) {
+      this.setImages(state, image);
+    }
+
+    window.localStorage.setItem('labels', JSON.stringify(state.labels));
+  },
+  setResetLabels(state) {
+    state.labels = {};
+    window.localStorage.removeItem('labels');
   },
 };

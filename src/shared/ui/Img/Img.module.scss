@@ -3,37 +3,37 @@
 }
 
 .desktopLittle {
-  object-fit: contain;
+  object-fit: cover;
   width: 127px;
   height: 127px;
 }
 
 .desktopDashboard {
-  object-fit: contain;
+  object-fit: cover;
   width: 280px;
   height: 280px;
 }
 
 .desktopBig {
-  object-fit: contain;
+  object-fit: cover;
   width: 425px;
   height: 425px;
 }
 
 .mobileDesktop {
-  object-fit: contain;
+  object-fit: cover;
   width: 280px;
   height: 280px;
 }
 
 .mobileLittle {
-  object-fit: contain;
+  object-fit: cover;
   width: 132px;
   height: 135px;
 }
 
 .mobileBig {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
   height: 554px;
 }

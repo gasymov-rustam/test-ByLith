@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { useGlobalContext } from '../../app';
-import { AllCards, Layout, Pagination } from '../../components';
+import { DashBoard, Layout, Pagination } from '../../components';
 import { useFetch } from '../../shared';
 
 export const Home = () => {
@@ -18,7 +18,7 @@ export const Home = () => {
 
   return (
     <Layout withLogo>
-      <AllCards />
+      <DashBoard />
       <Pagination />
     </Layout>
   );

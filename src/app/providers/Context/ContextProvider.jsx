@@ -7,10 +7,8 @@ import { reducer } from './ContextProvider.utils';
 const initialState = {
   data: [],
   product: null,
-  variantPrice: null,
-  variantTitle: null,
-  variantId: null,
-  labels: [],
+  labels: {},
+  variant: null,
   cart: JSON.parse(window.localStorage.getItem('cart')) ?? [],
   productCount: 1,
   currentPage: 1,

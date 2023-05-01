@@ -6,7 +6,7 @@ import { Error } from '../Error';
 import { Loader } from '../Loaders';
 import { PictureCard } from '../PictureCard';
 
-export const AllCards = memo(() => {
+export const DashBoard = memo(() => {
   const count = useCountOnPage();
   const { state } = useGlobalContext();
   const { data, error, isLoading, currentPage } = state;

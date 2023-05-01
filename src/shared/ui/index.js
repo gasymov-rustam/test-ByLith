@@ -7,3 +7,5 @@ export * from './Img';
 export * from './ListBox';
 export * from './Card';
 export * from './Price';
+export * from './Overlay';
+export * from './Modal';

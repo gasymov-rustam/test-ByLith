@@ -1,0 +1,15 @@
+.mainImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.modal {
+  height: fit-content;
+  max-height: 90%;
+
+  & div {
+    width: 100%;
+    height: 100%;
+  }
+}

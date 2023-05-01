@@ -6,7 +6,7 @@ export * from './Header';
 export * from './Logo';
 export * from './Loaders';
 export * from './Error';
-export * from './AllCards';
+export * from './DashBoard';
 export * from './ProductContent';
 export * from './Pagination';
 export * from './Layout';

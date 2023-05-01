@@ -19,21 +19,22 @@ export const ProductContent = memo(({ id }) => {
   const { methods, state } = useGlobalContext();
   const product = state?.product?.data;
   const count = state?.productCount;
-  const currentTitle = state?.variantTitle;
-  const variantId = state?.variantId;
+  const currentTitle = state?.variant?.title;
+  const variantId = state?.variant?.id;
   const images = product?.images;
   const title = currentTitle ?? product?.title;
   const description = product?.description;
-  const price = state.variantPrice;
+  const price = state.variant?.price;
   const isSpecialOffer = !!(product?.max_price - product?.min_price);
 
   useEffect(() => {
-    methods.setLoading(error);
+    // const data = JSON.parse(window.localStorage.getItem('product'));
+    methods.setLoading(isLoading);
     methods.setProduct(data);
     methods.setError(error);
     window.localStorage.setItem('product', JSON.stringify(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, error, isLoading]);
+  }, [data]);
 
   const handleSubmit = async () => {
     const productAddToCart = {
@@ -46,7 +47,7 @@ export const ProductContent = memo(({ id }) => {
       body: productAddToCart,
     });
 
-    methods.addToCart(productAddToCart)
+    methods.addToCart(productAddToCart);
   };
 
   useEffect(() => {
