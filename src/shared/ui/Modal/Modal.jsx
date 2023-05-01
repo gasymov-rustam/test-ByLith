@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import { Overlay, TRANSITION_DURATION } from '../Overlay';
@@ -8,6 +9,10 @@ import cls from './Modal.module.scss';
 
 export const Modal = (props) => {
   const { children, className, isOpen, onClose } = props;
+
+  useEffect(() => {
+    document.querySelector('body').style.overflow = isOpen ? 'hidden' : 'auto';
+  }, [isOpen]);
 
   return (
     <Portal>

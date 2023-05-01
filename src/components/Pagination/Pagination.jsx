@@ -20,6 +20,8 @@ export const Pagination = memo(() => {
     [methods],
   );
 
+  if (!pageCount) return null;
+
   return (
     <ReactPaginate
       breakLabel={null}

@@ -20,26 +20,56 @@
   overflow: hidden;
 }
 
-// .enterContent {
-//   width: 20%;
-//   opacity: 0;
-// }
+.enterContent {
+  width: 20%;
+  opacity: 0;
+}
 
-// .enterActiveContent {
-//   width: 40%;
-//   opacity: 1;
-//   transition-property: width opacity;
-//   transition-duration: var(--transition-duration-modal);
-// }
+.enterActiveContent {
+  width: 80%;
+  opacity: 1;
+  transition-property: width opacity;
+  transition-duration: var(--transition-duration-modal);
+}
 
-// .exitContent {
-//   width: 40%;
-//   opacity: 1;
-// }
+.exitContent {
+  width: 80%;
+  opacity: 1;
+}
 
-// .exitActiveContent {
-//   width: 20%;
-//   opacity: 0;
-//   transition-property: width opacity;
-//   transition-duration: var(--transition-duration-modal);
-// }
+.exitActiveContent {
+  width: 20%;
+  opacity: 0;
+  transition-property: width opacity;
+  transition-duration: var(--transition-duration-modal);
+}
+
+@keyframes unfoldIn {
+  0% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+  50% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: scaleY(1) scaleX(1);
+  }
+}
+
+@keyframes unfoldOut {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+}

@@ -38,6 +38,7 @@ export const useFetch = ({
       headers = { 'Content-Type': 'application/json' },
       body = null,
       deps = [],
+      messageSuccess = 'Data loaded successfully!',
       transformResponse = (data) => data,
     }) => {
       const updatedResponse = { error: null, isLoading: true, data: null };
@@ -58,7 +59,7 @@ export const useFetch = ({
 
         if (response.data) {
           updatedResponse.data = transformResponse(response.data);
-          toast.success('Data loaded successfully!');
+          toast.success(messageSuccess);
         }
       } catch (error) {
         if (isAxiosError(error)) {

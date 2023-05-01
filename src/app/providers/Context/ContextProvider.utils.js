@@ -36,6 +36,9 @@ export const reducer = {
       this.setImages(state, payload?.image);
     }
   },
+  setWithResetLabels(state, payload) {
+    state.labels = payload;
+  },
   setLabels(state, payload) {
     if (payload.attribute_id === Object.keys(state.labels)[0]) {
       this.setResetLabels(state);
@@ -44,7 +47,18 @@ export const reducer = {
     state.labels[payload.attribute_id] = payload.label_id;
     const attribute = state.product?.data?.attributes.find((item) => item.id === payload.attribute_id);
     const label = attribute.labels.find((value) => value.id === payload.label_id);
-    const image = state.product?.data?.images.find((item) => item.title.includes(label.title.toLowerCase()));
+
+    if (state.product?.data?.images?.length <= 1) return;
+
+    const image = state.product?.data?.images.find((item) => {
+      const searchRegExp = /\W/g;
+      const replaceWith = '';
+
+      const itemTitle = item.title.split('.')[0].toLowerCase().replace(searchRegExp, replaceWith);
+      const labelTitle = label.title.toLowerCase().replace(searchRegExp, replaceWith);
+
+      return itemTitle === labelTitle;
+    });
 
     if (image) {
       this.setImages(state, image);
@@ -54,6 +68,7 @@ export const reducer = {
   },
   setResetLabels(state) {
     state.labels = {};
+    state.variant = null;
     window.localStorage.removeItem('labels');
   },
 };

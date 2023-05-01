@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 
 import { useGlobalContext } from '../../app';
 import { DashBoard, Layout, Pagination } from '../../components';
-import { useFetch } from '../../shared';
+import { REQUESTS, useFetch } from '../../shared';
 
 export const Home = () => {
   const { methods } = useGlobalContext();
-  const { data, error, isLoading } = useFetch({ url: 'https://fedtest.bylith.com/api/Catalog/GetAll' });
+  const { data, error, isLoading } = useFetch({ url: REQUESTS.GET_ALL });
 
   useEffect(() => {
     methods.setLoading(isLoading);

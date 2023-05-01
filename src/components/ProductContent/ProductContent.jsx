@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react';
 
 import { useGlobalContext } from '../../app';
-import { Button, FlexGap, HorizontalFlex, Price, Text, TextSize, VerticalFlex } from '../../shared';
+import { Button, FlexGap, HorizontalFlex, Price, REQUESTS, Text, TextSize, VerticalFlex } from '../../shared';
 import { useFetch } from '../../shared/hooks';
 import { Attributes } from '../Attributes';
 import { Error } from '../Error';
@@ -13,7 +13,7 @@ import cls from './ProductContent.module.scss';
 
 export const ProductContent = memo(({ id }) => {
   const { data, isLoading, error, fetchUpdateData } = useFetch({
-    url: `https://fedtest.bylith.com/api/catalog/get?id=${id}`,
+    url: `${REQUESTS.GET_BY_ID}${id}`,
   });
   const [isDisabled, setIsDisabled] = useState(true);
   const { methods, state } = useGlobalContext();
@@ -42,12 +42,16 @@ export const ProductContent = memo(({ id }) => {
       quantity: count,
     };
 
-    await fetchUpdateData({
-      url: 'https://fedtest.bylith.com/api/cart/add',
+    const response = await fetchUpdateData({
+      url: REQUESTS.ADD_TO_CART,
       body: productAddToCart,
+      messageSuccess: 'Product added to cart successfully!',
     });
 
-    methods.addToCart(productAddToCart);
+    if (!response.error) {
+      methods.addToCart(productAddToCart);
+      methods.setResetLabels();
+    }
   };
 
   useEffect(() => {

@@ -50,6 +50,8 @@ export const Gallery = memo(({ images, className }) => {
       <Img
         src={images?.[0].url}
         className={cls.mainImg}
+        width={400}
+        height={400}
         parentClassName={cls.parentMainImage}
         isSpecialOffer={isSpecialOffer}
         onClick={handleOpenModal}
