@@ -26,7 +26,14 @@ export const useAttributes = () => {
   }, [attributes, labels, variants]);
 
   useEffect(() => {
+    if (!variants?.length && Object.keys(labels).length) {
+      methods.setResetLabels();
+
+      return;
+    }
+
     const isFinished = Object.keys(labels).length === attributes?.length;
+
     if (isFinished) {
       const variant = variants?.find((atr) => {
         return atr.labels.find((label) => {

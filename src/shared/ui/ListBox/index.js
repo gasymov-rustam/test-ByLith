@@ -1,1 +1,1 @@
-export { ListBox } from './ListBox';
+export { ListBox, CHOOSE_LABEL } from './ListBox';

@@ -14,10 +14,11 @@ export const App = () => {
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
-        draggable
+        pauseOnFocusLoss={false}
+        draggable={false}
         pauseOnHover
-        theme="light"
+        theme="colored"
+        className="toast-container"
       />
     </>
   );

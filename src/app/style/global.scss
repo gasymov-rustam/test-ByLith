@@ -15,6 +15,14 @@ body {
   border: 1px solid red;
 }
 
+.toast-container {
+  // background-color: black;
+  & > div {
+    background-color: var(--sale-color) !important;
+    color: var(--text-main-color) !important;
+  }
+}
+
 body.scroll-disabled {
   overflow-y: hidden;
 }

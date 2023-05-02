@@ -9,10 +9,12 @@ import { Text, TextSize } from '../Text';
 
 import cls from './ListBox.module.scss';
 
+export const CHOOSE_LABEL = 'Choose';
+
 const createName = (items, label, value, isMobile) => {
   const str = items.find((item) => item.id === value)?.title;
 
-  return str ?? `${isMobile ? label : `Choose ${label}`}`;
+  return str ?? `${isMobile ? label : `${CHOOSE_LABEL} ${label}`}`;
 };
 
 const createObjectNames = (items) => {

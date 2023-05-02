@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect } from 'react';
 
 import { useGlobalContext } from '../../app';
-import { ListBox, useAttributes } from '../../shared';
+import { CHOOSE_LABEL, ListBox, useAttributes } from '../../shared';
 
 export const Attributes = memo(({ className }) => {
   const values = useAttributes();
@@ -10,7 +10,7 @@ export const Attributes = memo(({ className }) => {
 
   const handleChange = useCallback(
     (e, parentId) => {
-      if (typeof e === 'string' && e?.includes('Choose')) {
+      if (typeof e === 'string' && e?.includes(CHOOSE_LABEL)) {
         methods.setResetLabels();
 
         return;

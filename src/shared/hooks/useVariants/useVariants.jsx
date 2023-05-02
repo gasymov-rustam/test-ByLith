@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { useGlobalContext } from '../../../app';
 
@@ -8,29 +8,31 @@ export const useVariants = () => {
   const variants = state?.product?.data?.variants;
   const [selectedVariants, setSelectedVariants] = useState(variants);
 
-  useEffect(() => {
-    const attributes = {};
-    const choosedVariant = [];
-
-    variants?.forEach((element) => {
-      attributes[element.id] = element.labels;
-    });
-
-    Object.entries(attributes)?.forEach(([key, value]) => {
-      const method = value.length === Object.keys(labels).length ? 'every' : 'some';
-
-      const result = value[method]((item) => {
-        return item.attribute_id in labels && item.label_id === labels[item.attribute_id];
+  const filter = useCallback((variants, key, item) => {
+    return variants.filter((variant) => {
+      return variant.labels.find((label) => {
+        return key === label.attribute_id && item === label.label_id;
       });
+    });
+  }, []);
 
-      if (result) {
-        const element = variants.find((item) => item.id === key);
-        choosedVariant.push(element);
-      }
+  const filterCurrentVariants = useCallback(() => {
+    if (!Object.keys(labels).length) return variants;
+
+    let newVariants;
+
+    Object.entries(labels).forEach(([key, item], index) => {
+      newVariants = index === 0 ? filter(variants, key, item) : filter(newVariants, key, item);
     });
 
-    setSelectedVariants(choosedVariant.length ? choosedVariant : variants);
-  }, [labels, variants]);
+    return newVariants;
+  }, [labels, variants, filter]);
+
+  useEffect(() => {
+    const filteredVariants = filterCurrentVariants();
+
+    setSelectedVariants(filteredVariants);
+  }, [variants, labels, filterCurrentVariants]);
 
   return selectedVariants;
 };

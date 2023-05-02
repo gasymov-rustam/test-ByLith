@@ -22,6 +22,7 @@
 .mainImg {
   width: var(--card-main-product-width);
   height: var(--card-main-product-width);
+  cursor: pointer;
 
   @include mobile {
     width: 100%;

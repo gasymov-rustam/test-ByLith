@@ -29,9 +29,9 @@ export const ProductContent = memo(({ id }) => {
 
   useEffect(() => {
     // const data = JSON.parse(window.localStorage.getItem('product'));
-    methods.setLoading(isLoading);
+    // methods.setLoading(isLoading);
     methods.setProduct(data);
-    methods.setError(error);
+    // methods.setError(error);
     window.localStorage.setItem('product', JSON.stringify(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
@@ -58,13 +58,13 @@ export const ProductContent = memo(({ id }) => {
     setIsDisabled(!variantId);
   }, [variantId]);
 
-  if (isLoading) {
-    return <LoaderProductCard />;
-  }
+  // if (isLoading) {
+  //   return <LoaderProductCard />;
+  // }
 
-  if (error && !product) {
-    return <Error />;
-  }
+  // if (error && !product) {
+  //   return <Error />;
+  // }
 
   return (
     <HorizontalFlex max={false} className={cls.wrapper} gap={FlexGap.XL}>
