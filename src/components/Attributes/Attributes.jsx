@@ -10,6 +10,11 @@ export const Attributes = memo(({ className }) => {
 
   const handleChange = useCallback(
     (e, parentId) => {
+      if (typeof e === 'string' && e?.includes('Choose')) {
+        methods.setResetLabels();
+
+        return;
+      }
       methods.setLabels({ attribute_id: parentId, label_id: e.id });
     },
     [methods],

@@ -54,6 +54,13 @@ export const ListBox = (props) => {
         leaveTo={cls.dropdownLeaveTo}
       >
         <Listbox.Options className={clsx(cls.options, className)}>
+          <Listbox.Option
+            className={({ active }) => clsx({ [cls.active]: active }, cls.opacity)}
+            value={`Choose ${label}`}
+          >
+            <Text textSize={TextSize.LIGHT} value={`Choose ${label}`} className={clsx(cls.text)} />
+          </Listbox.Option>
+
           {items.map((item, idx) => {
             return (
               <Listbox.Option key={idx} className={({ active }) => clsx({ [cls.active]: active })} value={item}>

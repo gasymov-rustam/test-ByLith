@@ -11,16 +11,11 @@ export const useAttributes = () => {
   const attributes = state?.product?.data?.attributes;
 
   useEffect(() => {
-    if (Object.keys(labels).length <= 1) {
-      setValues(attributes);
-      return;
-    }
-
     const sortedVariants = variants?.flatMap((item) => item.labels);
 
     const sortedAttributes = attributes?.map((atr) => {
       const newLabels = atr.labels.filter((label) => {
-        if (label.id in labels) return true;
+        if (atr.id in labels) return true;
         return sortedVariants?.find((item) => item.attribute_id === atr.id && item.label_id === label.id);
       });
 
