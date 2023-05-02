@@ -12,6 +12,7 @@
     "lint:style": "npx stylelint \"**/*.scss\"",
     "lint:style:fix": "npx stylelint \"**/*.scss\" --fix",
     "test": "jest --config ./config/jest/jest.config.js",
+    "docker:dev": "docker-compose -f ./docker/docker-compose.yml up",
     "prepare": "husky install",
     "postinstall": "rm -rf .\\node_modules\\.cache"
   },
