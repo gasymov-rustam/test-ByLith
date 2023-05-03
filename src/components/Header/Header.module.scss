@@ -13,6 +13,9 @@
   @include mobile {
     padding-top: calc(var(--padding-xxl) + 6px);
   }
+  @include tablet {
+    padding-top: calc(var(--padding-xxl) + 5px);
+  }
 }
 
 .divider {
@@ -33,11 +36,22 @@
     width: 100%;
     height: 40px;
   }
+
+  @include tablet {
+    width: 330px;
+    height: 40px;
+  }
 }
 
 .homeLink {
   font: var(--font-medium);
   padding: var(--padding-l) 0;
+
+  @include tablet {
+    margin-left: -3px;
+    padding-top: 0;
+    font-size: 26px;
+  }
 }
 
 .active {

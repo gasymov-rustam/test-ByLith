@@ -33,11 +33,12 @@ export const Pagination = memo(() => {
       pageCount={pageCount}
       renderOnZeroPageCount={null}
       containerClassName={cls.pagination}
-      activeLinkClassName={cls.previous}
+      activeLinkClassName={cls.activeLink}
       pageLinkClassName={cls.pageLink}
       disabledClassName={cls.disabled}
       previousClassName={cls.previous}
-      nextClassName={cls.previous}
+      nextClassName={cls.next}
+      pageClassName={cls.page}
     />
   );
 });

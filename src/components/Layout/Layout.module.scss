@@ -13,16 +13,16 @@
   flex: 1;
   padding-bottom: calc(2 * var(--padding-xxl));
 
-  @include mobile {
+  @include tablet {
     width: 100%;
-    padding-left: 20px;
+    padding-left: 13px;
     padding-right: 24px;
     padding-bottom: calc(var(--padding-xxl) + 12px);
   }
 
-  @include tablet {
+  @include mobile {
     width: 100%;
-    padding-left: 20px;
+    padding-left: 15px;
     padding-right: 24px;
     padding-bottom: calc(var(--padding-xxl) + 12px);
   }

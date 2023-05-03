@@ -1,8 +1,15 @@
 .pagination {
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--gap-xs);
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
 }
 
 .pageLink {
@@ -11,10 +18,23 @@
   font: var(--font-secondary-bold);
 }
 
-.previous {
+.previous,
+.activeLink,
+.next {
   opacity: 1;
   cursor: pointer;
   font: var(--font-secondary-bold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.next {
+  padding-left: 25px;
+}
+
+.previous {
+  padding-right: 25px;
 }
 
 .disabled {

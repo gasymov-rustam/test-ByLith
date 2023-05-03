@@ -2,6 +2,13 @@
 
 .container {
   height: 443px;
+
+  @include tablet {
+    max-width: 260px;
+  }
+  @include minMobile {
+    min-width: 100%;
+  }
 }
 
 .card {

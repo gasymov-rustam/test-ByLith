@@ -1,19 +1,20 @@
 @import '@/app/style/breakpoints.scss';
 
 .card {
-  margin-bottom: 97px;
+  margin-bottom: 49px;
   cursor: pointer;
 
-  @include mobile {
-    max-width: 100%;
-    margin-bottom: var(--margin-xl);
-  }
-
   @include tablet {
+    width: 276px;
     margin-bottom: var(--margin-xl);
   }
 
   @include desktop {
+    margin-bottom: var(--margin-xl);
+  }
+
+  @include mobile {
+    min-width: 100%;
     margin-bottom: var(--margin-xl);
   }
 }
@@ -30,26 +31,43 @@
   @include mobile {
     width: 100%;
   }
-}
 
-.name {
   @include mobile {
-    width: 100%;
-    text-align: center;
-    font-size: var(--font-size-xl);
-    line-height: calc(var(--font-line-xs) - 0.1);
-    margin-bottom: var(--margin-s);
-  }
-  @include tablet {
-    font-size: var(--font-size-xl);
-    line-height: calc(var(--font-line-xs) - 0.1);
+    margin-bottom: 17px;
   }
 }
 
-.price {
-  @include mobile {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.labels {
+  margin-top: 4px;
+
+  .name {
+    @include mobile {
+      width: 100%;
+      text-align: left;
+      font-size: var(--font-size-xl);
+      line-height: calc(var(--font-line-xs) - 0.1);
+      margin-bottom: var(--margin-s);
+    }
+    @include tablet {
+      font-size: var(--font-size-xl);
+      line-height: calc(var(--font-line-xs) - 0.1);
+      margin-top: 5px;
+    }
+  }
+
+  .price {
+    @include mobile {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    @include tablet {
+      margin-top: 5px;
+
+      & > span {
+        font-size: 22px;
+      }
+    }
   }
 }

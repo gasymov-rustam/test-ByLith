@@ -13,6 +13,10 @@
     width: 322px;
     padding-bottom: 55px;
   }
+  @include tablet {
+    width: 322px;
+    padding-bottom: 55px;
+  }
 }
 
 .logo {
@@ -21,6 +25,10 @@
   position: relative;
   width: 248.8px;
   height: 46px;
+
+  @include tablet {
+    margin-top: -12px;
+  }
 }
 
 .square {
@@ -28,14 +36,19 @@
   height: 46px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -35px;
   background: #f9dfdf;
 }
 
 .text {
   position: absolute;
   bottom: -6px;
-  right: 24px;
+  right: 28px;
   font: var(--font-home-title);
   font-size: var(--font-size-l);
+  letter-spacing: 5.5px;
+
+  @include tablet {
+    right: 29px;
+  }
 }
