@@ -15,11 +15,11 @@ export const DashBoard = memo(() => {
     const start = count * (currentPage - 1);
     const end = start + count;
 
-    return data?.data?.slice(start, end - 1) ?? [];
+    return data?.data?.slice(start, end) ?? [];
   }, [count, currentPage, data?.data]);
 
   if (isLoading) {
-    return <Loader count={8} />;
+    return <Loader count={count} />;
   }
 
   if (error) {

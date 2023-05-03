@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useEventListener } from '../useEventListener/useEventListener';
 
-export const useMobile = (mediaQuery = '(max-width: 640px)') => {
+export const useMobile = (mediaQuery = '(max-width: 768px)') => {
   const [isMatch, setIsMatch] = useState(false);
   const [mediaQueryList, setMediaQueryList] = useState(null);
 

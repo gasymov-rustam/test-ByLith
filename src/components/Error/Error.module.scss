@@ -1,5 +1,11 @@
+@import '@/app/style/breakpoints.scss';
+
 .error {
   text-align: center;
   height: 100%;
   font-size: var(--font-size-xxl);
+
+  @include mobile {
+    font-size: var(--font-size-l);
+  }
 }

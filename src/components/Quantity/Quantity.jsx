@@ -12,7 +12,7 @@ export const Quantity = memo(({ className }) => {
 
   return (
     <HorizontalFlex className={clsx(cls.quantity, className)} justify={FlexJustify.BETWEEN}>
-      <Text textSize={TextSize.LIGHT} value="Quantity" />
+      <Text textSize={TextSize.LIGHT} value="Quantity" className={cls.text} />
       <Counter value={productCount} onChange={methods.setProductCount} />
     </HorizontalFlex>
   );

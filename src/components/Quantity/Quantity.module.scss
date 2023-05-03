@@ -1,4 +1,14 @@
 @import '@/app/style/breakpoints.scss';
 
+.text,
 .quantity {
+  font-size: var(--font-size-xl);
+
+  @include mobile {
+    font-size: var(--font-size-m);
+  }
+
+  @include tablet {
+    font-size: var(--font-size-m);
+  }
 }

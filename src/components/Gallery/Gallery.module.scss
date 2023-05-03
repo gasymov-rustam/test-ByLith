@@ -6,11 +6,20 @@
   @include mobile {
     width: 100%;
   }
+
+  @include tablet {
+    width: 100%;
+  }
+
+  .block {
+    justify-content: space-between;
+  }
 }
 
 .otherPicture {
   width: var(--card-secondary-product-width);
   height: var(--card-secondary-product-width);
+
   cursor: pointer;
 
   @include mobile {
@@ -26,7 +35,13 @@
 
   @include mobile {
     width: 100%;
-    height: 554px;
+    height: auto;
+  }
+
+  @include tablet {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }
 

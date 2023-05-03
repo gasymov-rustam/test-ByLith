@@ -2,7 +2,36 @@
 
 .wrapper {
   margin-top: 69px;
+
+  @include mobile {
+    margin-top: 32px;
+  }
+
+  @include tablet {
+    margin-top: 32px;
+  }
+
+  .minDesktop {
+    flex: 1;
+  }
 }
+
+.miniDesktop {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+
+  @include minDesktop {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @include desktop {
+    max-width: 100%;
+    min-width: 200px;
+  }
+}
+
 .description,
 .selects {
   padding-top: 7px;
@@ -10,11 +39,44 @@
   max-width: 400px;
   flex-grow: 1;
   align-self: stretch;
+
+  @include tablet {
+    text-align: center;
+    max-width: 100%;
+    padding-left: 0;
+  }
+
+  @include minDesktop {
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @include desktop {
+    min-width: 100%;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 .title {
   font: var(--font-header);
   font-weight: var(--font-weight-xl);
+
+  @include minDesktop {
+    text-align: center;
+    width: 100%;
+  }
+
+  @include tablet {
+    width: 100%;
+    text-align: center;
+  }
+
+  @include desktop {
+    width: 100%;
+    margin-top: 5px;
+  }
 }
 
 .price {
@@ -22,6 +84,23 @@
   line-height: var(--font-line-l);
   font-weight: var(--font-weight-l);
   margin-top: calc(var(--margin-m) + var(--margin-s));
+
+  @include minDesktop {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  @include mobile {
+    margin-top: 5px;
+  }
+
+  @include tablet {
+    margin-top: var(--margin-m);
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .text {
@@ -29,6 +108,16 @@
   line-height: 1.67;
   font-weight: var(--font-weight-s);
   margin-top: calc(var(--margin-xl) + 6px);
+
+  @include mobile {
+    margin-top: calc(var(--margin-xl) + 4px);
+  }
+
+  @include minDesktop {
+    text-align: center;
+    width: 100%;
+    margin-top: 0;
+  }
 }
 
 .selects {
@@ -38,6 +127,11 @@
 
   @include mobile {
     max-width: calc(290px + 44px);
-    padding-left: 44px;
+    padding-left: 0;
+  }
+
+  @include tablet {
+    max-width: 100%;
+    padding-left: 0;
   }
 }

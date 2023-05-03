@@ -23,6 +23,16 @@
 .oneProductWrapper {
   margin-top: 69px;
 
+  @include mobile {
+    margin-top: 32px;
+  }
+
+  .miniImg {
+    @include mobile {
+      justify-content: space-between;
+    }
+  }
+
   .imgContainer {
     width: 440px;
     overflow: hidden;
@@ -31,6 +41,7 @@
       width: 440px;
       height: 425px;
       margin-bottom: 22px;
+
       @include mobile {
         width: 100%;
       }
@@ -78,6 +89,11 @@
   .selectContainer {
     width: 290px;
     margin-left: 84px;
+
+    @include tablet {
+      margin-left: 0;
+      margin-top: 32px;
+    }
 
     .select {
       height: 40px;

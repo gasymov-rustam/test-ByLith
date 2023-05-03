@@ -1,6 +1,6 @@
-import { Listbox, Transition } from '@headlessui/react';
+import { Listbox } from '@headlessui/react';
 import clsx from 'clsx';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 
 import { useMobile } from '../../hooks';
@@ -46,32 +46,22 @@ export const ListBox = (props) => {
         </HorizontalFlex>
       </Listbox.Button>
 
-      <Transition
-        as={Fragment}
-        enter={cls.dropdownEnter}
-        enterFrom={cls.dropdownEnterFrom}
-        enterTo={cls.dropdownEnterTo}
-        leave={cls.dropdownLeave}
-        leaveFrom={cls.dropdownLeaveFrom}
-        leaveTo={cls.dropdownLeaveTo}
-      >
-        <Listbox.Options className={clsx(cls.options, className)}>
-          <Listbox.Option
-            className={({ active }) => clsx({ [cls.active]: active }, cls.opacity)}
-            value={`Choose ${label}`}
-          >
-            <Text textSize={TextSize.LIGHT} value={`Choose ${label}`} className={clsx(cls.text)} />
-          </Listbox.Option>
+      <Listbox.Options className={clsx(cls.options, className)}>
+        <Listbox.Option
+          className={({ active }) => clsx({ [cls.active]: active }, cls.opacity)}
+          value={`Choose ${label}`}
+        >
+          <Text textSize={TextSize.LIGHT} value={`Choose ${label}`} className={clsx(cls.text)} />
+        </Listbox.Option>
 
-          {items.map((item, idx) => {
-            return (
-              <Listbox.Option key={idx} className={({ active }) => clsx({ [cls.active]: active })} value={item}>
-                <Text textSize={TextSize.LIGHT} value={item?.title} className={clsx(cls.text)} />
-              </Listbox.Option>
-            );
-          })}
-        </Listbox.Options>
-      </Transition>
+        {items.map((item, idx) => {
+          return (
+            <Listbox.Option key={idx} className={({ active }) => clsx({ [cls.active]: active })} value={item}>
+              <Text textSize={TextSize.LIGHT} value={item?.title} className={clsx(cls.text)} />
+            </Listbox.Option>
+          );
+        })}
+      </Listbox.Options>
     </Listbox>
   );
 };

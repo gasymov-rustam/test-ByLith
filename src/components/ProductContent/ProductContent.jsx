@@ -1,7 +1,17 @@
 import { memo, useEffect, useState } from 'react';
 
 import { useGlobalContext } from '../../app';
-import { Button, FlexGap, HorizontalFlex, Price, REQUESTS, Text, TextSize, VerticalFlex } from '../../shared';
+import {
+  Button,
+  FlexAlign,
+  FlexGap,
+  HorizontalFlex,
+  Price,
+  REQUESTS,
+  Text,
+  TextSize,
+  VerticalFlex,
+} from '../../shared';
 import { useFetch } from '../../shared/hooks';
 import { Attributes } from '../Attributes';
 import { Error } from '../Error';
@@ -29,9 +39,9 @@ export const ProductContent = memo(({ id }) => {
 
   useEffect(() => {
     // const data = JSON.parse(window.localStorage.getItem('product'));
-    // methods.setLoading(isLoading);
+    methods.setLoading(isLoading);
     methods.setProduct(data);
-    // methods.setError(error);
+    methods.setError(error);
     window.localStorage.setItem('product', JSON.stringify(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
@@ -58,39 +68,41 @@ export const ProductContent = memo(({ id }) => {
     setIsDisabled(!variantId);
   }, [variantId]);
 
-  // if (isLoading) {
-  //   return <LoaderProductCard />;
-  // }
+  if (isLoading) {
+    return <LoaderProductCard />;
+  }
 
-  // if (error && !product) {
-  //   return <Error />;
-  // }
+  if (error && !product) {
+    return <Error />;
+  }
 
   return (
-    <HorizontalFlex max={false} className={cls.wrapper} gap={FlexGap.XL}>
+    <HorizontalFlex max={false} className={cls.wrapper} align={FlexAlign.START} gap={FlexGap.XL}>
       <Gallery images={images} className={cls.gallery} />
 
-      <VerticalFlex max={false} className={cls.description}>
-        <Text value={title} as="h2" className={cls.title} />
+      <div className={cls.miniDesktop}>
+        <VerticalFlex max={false} className={cls.description}>
+          <Text value={title} as="h2" className={cls.title} />
 
-        <Price
-          price={product?.max_price}
-          as="h3"
-          isSpecialOffer={isSpecialOffer}
-          relevantPrice={price ?? product?.min_price}
-          className={cls.price}
-        />
-        <Text value={description} as="p" className={cls.text} />
-      </VerticalFlex>
+          <Price
+            price={product?.max_price}
+            as="h3"
+            isSpecialOffer={isSpecialOffer}
+            relevantPrice={price ?? product?.min_price}
+            className={cls.price}
+          />
+          <Text value={description} as="p" className={cls.text} />
+        </VerticalFlex>
 
-      <VerticalFlex max={false} className={cls.selects}>
-        <Attributes className={cls.attributes} />
-        <Quantity />
+        <VerticalFlex max={false} className={cls.selects}>
+          <Attributes className={cls.attributes} />
+          <Quantity />
 
-        <Button onClick={handleSubmit} disabled={isDisabled}>
-          <Text textSize={TextSize.PRIMARY_BOLD} value="Add to cart" />
-        </Button>
-      </VerticalFlex>
+          <Button onClick={handleSubmit} disabled={isDisabled}>
+            <Text textSize={TextSize.PRIMARY_BOLD} value="Add to cart" />
+          </Button>
+        </VerticalFlex>
+      </div>
     </HorizontalFlex>
   );
 });

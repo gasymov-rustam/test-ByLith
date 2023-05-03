@@ -13,7 +13,7 @@ export const LoaderProductCard = () => {
       <VerticalFlex className={cls.imgContainer}>
         <Skeleton className={cls.images} />
 
-        <HorizontalFlex gap={FlexGap.L}>
+        <HorizontalFlex gap={FlexGap.L} className={cls.miniImg}>
           <Skeleton className={cls.img} />
           <Skeleton className={cls.img} />
           <Skeleton className={cls.img} />

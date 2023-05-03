@@ -3,6 +3,18 @@
 .wrapper {
   width: fit-content;
   position: relative;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  @include tablet {
+    width: 100%;
+  }
+
+  @include minDesktop {
+    width: 100%;
+  }
 }
 
 .opacity {
@@ -18,7 +30,7 @@
   border: 1px solid var(--select-border-color);
   background-image: var(--select-background);
   transition: var(--transition-duration-regular);
-  z-index: 1000;
+  z-index: var(--modal-z-index);
 
   &:hover {
     background: var(--hovered-select-background);
@@ -29,10 +41,19 @@
   }
 
   @include mobile {
-    width: 277px;
+    width: 100%;
+    min-width: 277px;
     height: 80px;
     padding-left: 27px;
     padding-right: 10px;
+  }
+
+  @include tablet {
+    width: 100%;
+  }
+
+  @include minDesktop {
+    width: 100%;
   }
 }
 
@@ -56,11 +77,13 @@
 
   & li {
     padding-left: var(--padding-xl);
+    text-align: left;
     cursor: pointer;
   }
 
   @include mobile {
-    width: 277px;
+    min-width: 277px;
+    width: 100%;
 
     & li {
       overflow: hidden;
@@ -69,35 +92,23 @@
       padding-left: 27px;
     }
   }
+
+  @include tablet {
+    width: 100%;
+  }
+
+  @include minDesktop {
+    width: 100%;
+  }
 }
 
 .text {
   @include mobile {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-m);
   }
 }
 
 .active {
   background: var(--hovered-select-background);
   box-shadow: 4px 4px 8px var(--header-color);
-}
-
-.transition {
-  transition-duration: var(--transition-duration-regular);
-  transform: translateX(-100%);
-}
-
-.dropdownEnter,
-.dropdownLeave {
-  transition: opacity var(--transition-duration-regular) ease-in-out;
-}
-
-.dropdownEnterFrom,
-.dropdownLeaveTo {
-  opacity: 0;
-}
-
-.dropdownEnterTo,
-.dropdownLeaveFrom {
-  opacity: 1;
 }
