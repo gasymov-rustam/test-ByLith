@@ -17,11 +17,11 @@ export const PictureCard = memo((props) => {
 
   return (
     <Card className={clsx(className, cls.card)} onClick={navigateToProduct}>
-      <Img src={src} isSpecialOffer={isSpecialOffer} className={cls.img} />
+      <Img src={src} isSpecialOffer={isSpecialOffer} className={cls.img} parentClassName={cls.imgWrapper} />
 
       <VerticalFlex className={cls.labels}>
         <Text value={name} textSize={TextSize.PRIMARY_BOLD} className={cls.name} />
-        <Price price={price} isSpecialOffer={isSpecialOffer} relevantPrice={relevantPrice} />
+        <Price price={price} isSpecialOffer={isSpecialOffer} relevantPrice={relevantPrice} className={cls.price} />
       </VerticalFlex>
     </Card>
   );

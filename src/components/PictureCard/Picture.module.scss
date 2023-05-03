@@ -1,20 +1,55 @@
 @import '@/app/style/breakpoints.scss';
 
-.img {
-  margin-bottom: calc(var(--margin-m) * 1.5);
-}
-
 .card {
   margin-bottom: 97px;
   cursor: pointer;
 
   @include mobile {
+    max-width: 100%;
+    margin-bottom: var(--margin-xl);
+  }
+
+  @include tablet {
+    margin-bottom: var(--margin-xl);
+  }
+
+  @include desktop {
+    margin-bottom: var(--margin-xl);
+  }
+}
+
+.imgWrapper {
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.img {
+  margin-bottom: calc(var(--margin-m) * 1.5);
+
+  @include mobile {
+    width: 100%;
   }
 }
 
 .name {
   @include mobile {
+    width: 100%;
+    text-align: center;
     font-size: var(--font-size-xl);
     line-height: calc(var(--font-line-xs) - 0.1);
+    margin-bottom: var(--margin-s);
+  }
+  @include tablet {
+    font-size: var(--font-size-xl);
+    line-height: calc(var(--font-line-xs) - 0.1);
+  }
+}
+
+.price {
+  @include mobile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }

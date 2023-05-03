@@ -6,6 +6,8 @@ import { Error } from '../Error';
 import { Loader } from '../Loaders';
 import { PictureCard } from '../PictureCard';
 
+import cls from './DashBoard.module.scss';
+
 export const DashBoard = memo(() => {
   const count = useCountOnPage();
   const { state } = useGlobalContext();
@@ -27,7 +29,7 @@ export const DashBoard = memo(() => {
   }
 
   return (
-    <HorizontalFlex gap={FlexGap.XXL}>
+    <HorizontalFlex gap={FlexGap.XXL} className={cls.wrapper}>
       {productsSlices?.map((product) => {
         const specialOffer = !!(product?.max_price - product?.min_price);
 

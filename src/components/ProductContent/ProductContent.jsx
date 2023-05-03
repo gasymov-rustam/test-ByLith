@@ -42,6 +42,7 @@ export const ProductContent = memo(({ id }) => {
     methods.setLoading(isLoading);
     methods.setProduct(data);
     methods.setError(error);
+    methods.setProductCount(1);
     window.localStorage.setItem('product', JSON.stringify(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
@@ -61,6 +62,7 @@ export const ProductContent = memo(({ id }) => {
     if (!response.error) {
       methods.addToCart(productAddToCart);
       methods.setResetLabels();
+      methods.resetProductCount();
     }
   };
 

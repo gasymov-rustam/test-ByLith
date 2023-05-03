@@ -18,9 +18,6 @@ export const reducer = {
   setCurrentPage(state, payload) {
     state.currentPage = payload;
   },
-  setProductCount(state, payload) {
-    state.productCount = payload;
-  },
   setImages(state, payload) {
     const newImages = state.product?.data?.images.filter((image) => image.url !== payload.url);
     newImages.unshift(payload);
@@ -70,5 +67,11 @@ export const reducer = {
     state.labels = {};
     state.variant = null;
     window.localStorage.removeItem('labels');
+  },
+  setProductCount(state, payload) {
+    state.productCount = payload;
+  },
+  resetProductCount(state) {
+    state.productCount = 1;
   },
 };

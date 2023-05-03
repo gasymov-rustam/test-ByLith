@@ -1,0 +1,11 @@
+@import '@/app/style/breakpoints.scss';
+
+.wrapper {
+  @include tablet {
+    justify-content: space-around;
+  }
+
+  @include desktop {
+    justify-content: space-around;
+  }
+}
