@@ -1,0 +1,12 @@
+@import '@/app/style/breakpoints.scss';
+
+.attributes {
+  margin-top: 2px;
+  gap: 30px;
+
+  @include mobileDesign {
+    flex-direction: row;
+    margin-left: 12px;
+    gap: 27px;
+  }
+}

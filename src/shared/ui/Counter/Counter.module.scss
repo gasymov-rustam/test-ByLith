@@ -1,3 +1,5 @@
+@import '@/app/style/breakpoints.scss';
+
 .counter {
   border: 0.3px solid var(--border-color);
   border-radius: var(--counter-border-radius);
@@ -6,6 +8,12 @@
   font-weight: var(--font-weight-s);
   font-size: 16px;
   line-height: var(--font-line-xl);
+  margin-top: 3px;
+
+  @include mobileDesign {
+    width: 172px;
+    height: 81px;
+  }
 }
 
 .btn {
@@ -23,6 +31,11 @@
 
   &:hover {
     border: 1px solid var(--text-secondary-color);
+  }
+
+  @include mobileDesign {
+    width: 20px;
+    height: 20px;
   }
 }
 

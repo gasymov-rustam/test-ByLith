@@ -19,6 +19,10 @@
   @include desktop {
     width: 100%;
   }
+
+  @include mobileDesign {
+    width: fit-content;
+  }
 }
 
 .opacity {
@@ -26,8 +30,8 @@
 }
 
 .btn {
-  width: 290px;
-  height: 40px;
+  width: 292px;
+  height: 41px;
   padding-left: var(--padding-xl);
   padding-right: var(--padding-l);
   cursor: pointer;
@@ -35,6 +39,7 @@
   background-image: var(--select-background);
   transition: var(--transition-duration-regular);
   z-index: var(--modal-z-index);
+  border: 1px solid gray;
 
   &:hover {
     background: var(--hovered-select-background);
@@ -63,6 +68,16 @@
   @include desktop {
     width: 100%;
   }
+
+  @include mobileDesign {
+    width: 277px;
+    height: 80px;
+    font-size: 28px;
+
+    & span {
+      font-size: 30px;
+    }
+  }
 }
 
 .textOverflow {
@@ -82,6 +97,7 @@
   box-shadow: 4px 4px 8px var(--header-color);
   outline: 1px solid var(--text-main-color);
   overflow: hidden;
+  margin-left: 1px;
 
   & li {
     padding-left: var(--padding-xl);
@@ -111,6 +127,14 @@
 
   @include desktop {
     width: 100%;
+  }
+
+  @include mobileDesign {
+    width: 275px;
+
+    & span {
+      font-size: 20px;
+    }
   }
 }
 

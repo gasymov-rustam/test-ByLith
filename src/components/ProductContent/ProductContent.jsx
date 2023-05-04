@@ -100,7 +100,7 @@ export const ProductContent = memo(({ id }) => {
           <Attributes className={cls.attributes} />
           <Quantity />
 
-          <Button onClick={handleSubmit} disabled={isDisabled}>
+          <Button onClick={handleSubmit} disabled={isDisabled} className={cls.btn}>
             <Text textSize={TextSize.PRIMARY_BOLD} value="Add to cart" />
           </Button>
         </VerticalFlex>

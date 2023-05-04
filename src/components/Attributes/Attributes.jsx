@@ -1,7 +1,9 @@
 import { memo, useCallback, useEffect } from 'react';
 
 import { useGlobalContext } from '../../app';
-import { CHOOSE_LABEL, ListBox, useAttributes } from '../../shared';
+import { CHOOSE_LABEL, FlexGap, ListBox, VerticalFlex, useAttributes } from '../../shared';
+
+import cls from './Attributes.module.scss';
 
 export const Attributes = memo(({ className }) => {
   const values = useAttributes();
@@ -28,7 +30,7 @@ export const Attributes = memo(({ className }) => {
   }, []);
 
   return (
-    <>
+    <VerticalFlex gap={FlexGap.XL} className={cls.attributes}>
       {values?.map((value) => {
         return (
           <ListBox
@@ -42,6 +44,6 @@ export const Attributes = memo(({ className }) => {
           />
         );
       })}
-    </>
+    </VerticalFlex>
   );
 });

@@ -12,3 +12,18 @@
     font-size: var(--font-size-m);
   }
 }
+
+.quantity {
+  margin-top: -5px;
+
+  @include mobileDesign {
+    & span {
+      font-size: 32px;
+    }
+  }
+}
+
+.text {
+  font-size: 16px;
+  padding-left: 22px;
+}

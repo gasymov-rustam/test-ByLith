@@ -26,4 +26,9 @@
     padding-right: 24px;
     padding-bottom: calc(var(--padding-xxl) + 12px);
   }
+
+  @include mobileDesign {
+    padding-left: 11px;
+    padding-right: 22px;
+  }
 }

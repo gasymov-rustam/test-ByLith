@@ -36,7 +36,7 @@
 
 .description,
 .selects {
-  padding-top: 7px;
+  padding-top: 5px;
   min-width: 200px;
   max-width: 400px;
   flex-grow: 1;
@@ -63,6 +63,10 @@
   }
 }
 
+.description {
+  margin-left: 10px;
+}
+
 .title {
   font: var(--font-header);
   font-weight: var(--font-weight-xl);
@@ -85,13 +89,18 @@
     width: 100%;
     margin-top: 5px;
   }
+
+  @include mobileDesign {
+    text-align: left;
+    margin-top: 9px;
+  }
 }
 
 .price {
   font-size: var(--font-size-s);
   line-height: var(--font-line-l);
   font-weight: var(--font-weight-l);
-  margin-top: calc(var(--margin-m) + var(--margin-s));
+  margin-top: 2px;
 
   @include minDesktop {
     display: flex;
@@ -113,13 +122,24 @@
   @include desktop {
     margin-top: 0;
   }
+
+  @include mobileDesign {
+    justify-content: flex-start;
+    font-size: 38px;
+    margin-top: -28px;
+
+    & > span {
+      letter-spacing: 2px;
+      font-size: 24px;
+    }
+  }
 }
 
 .text {
   font-size: var(--font-size-xs);
   line-height: 1.67;
   font-weight: var(--font-weight-s);
-  margin-top: calc(var(--margin-xl) + 6px);
+  margin-top: calc(var(--margin-xl) - 4px);
 
   @include mobile {
     margin-top: calc(var(--margin-xl) + 4px);
@@ -134,10 +154,17 @@
   @include desktop {
     margin-top: 0;
   }
+
+  @include mobileDesign {
+    font-size: 26px;
+    margin-top: -6px;
+    line-height: 1.54;
+    text-align: left;
+  }
 }
 
 .selects {
-  max-width: calc(290px + var(--padding-xl));
+  max-width: calc(288px + var(--padding-xl));
   padding-left: var(--padding-xl);
   gap: 32px;
 
@@ -154,5 +181,37 @@
   @include desktop {
     padding-left: 0;
     margin-top: 0;
+  }
+
+  .btn {
+    margin-left: -3px;
+    height: 47px;
+    width: 295px;
+    margin-top: -7px;
+
+    @include mobile {
+      width: 100%;
+      height: 80px;
+    }
+
+    @include tablet {
+      width: 100%;
+      height: 80px;
+    }
+
+    @include desktop {
+      width: 100%;
+      height: 80px;
+    }
+
+    @include mobileDesign {
+      width: 582px;
+      height: 104px;
+      margin-left: 12px;
+
+      & span {
+        font-size: 36px;
+      }
+    }
   }
 }

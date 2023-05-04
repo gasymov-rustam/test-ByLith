@@ -26,6 +26,10 @@
   @include mobile {
     margin-top: calc(var(--margin-xl) + 1px);
   }
+
+  @include mobileDesign {
+    margin-top: calc(var(--margin-xl) + 1px);
+  }
 }
 
 .img {
@@ -41,19 +45,31 @@
     width: 330px;
     height: 40px;
   }
+
+  @include mobileDesign {
+    margin-top: 9px;
+    margin-left: 5px;
+  }
 }
 
 .homeLink {
   font: var(--font-medium);
   padding: var(--padding-l) 0;
+  margin-left: -6px;
 
-  @include tablet {
-    margin-left: -3px;
-    padding-top: 0;
-    font-size: 26px;
+  @include mobileDesign {
+    font-size: 25px;
+    margin-left: 7px;
+    padding: 7px 0;
   }
-}
 
-.active {
-  color: var(--sale-color);
+  .active {
+    color: var(--sale-color);
+
+    @include tablet {
+      margin-left: -3px;
+      padding-top: 0;
+      font-size: 26px;
+    }
+  }
 }

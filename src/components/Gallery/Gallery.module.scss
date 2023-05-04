@@ -12,15 +12,29 @@
   }
 }
 
-.otherPicture {
-  width: var(--card-secondary-product-width);
-  height: var(--card-secondary-product-width);
+.block {
+  .otherPicture {
+    width: var(--card-secondary-product-width);
+    height: var(--card-secondary-product-width);
+    margin-left: 9px;
+    margin-bottom: 6px;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  @include mobile {
-    width: var(--card-secondary-mobile-width);
-    height: calc(var(--card-secondary-mobile-width) + 3px);
+    @include mobile {
+      width: var(--card-secondary-mobile-width);
+      height: calc(var(--card-secondary-mobile-width) + 3px);
+    }
+
+    @include mobileDesign {
+      width: 133px;
+      height: 135px;
+    }
+  }
+
+  @include mobileDesign {
+    margin-top: -3px;
+    gap: 12px;
   }
 }
 
@@ -28,6 +42,7 @@
   width: var(--card-main-product-width);
   height: var(--card-main-product-width);
   cursor: pointer;
+  height: 430px;
 
   @include mobile {
     width: 100%;
@@ -39,8 +54,15 @@
     height: auto;
     object-fit: contain;
   }
+
+  @include mobileDesign {
+    margin-top: -3px;
+    height: 554px;
+    object-fit: cover;
+  }
 }
 
 .parentMainImage {
+  margin-left: 9px;
   width: 100%;
 }

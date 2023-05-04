@@ -29,6 +29,9 @@
 
 .oneProductWrapper {
   margin-top: 69px;
+  @include mobileDesign {
+    width: 100%;
+  }
 
   @include mobile {
     margin-top: 32px;
@@ -44,12 +47,30 @@
     width: 440px;
     overflow: hidden;
 
+    @include mobileDesign {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    @include tablet {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
     .images {
       width: 440px;
       height: 425px;
       margin-bottom: 22px;
 
       @include mobile {
+        width: 100%;
+      }
+
+      @include mobileDesign {
+        width: 100%;
+      }
+
+      @include tablet {
         width: 100%;
       }
     }
@@ -91,14 +112,34 @@
       width: 100%;
       margin-left: 0;
     }
+
+    @include mobileDesign {
+      margin-left: -5px;
+      width: 98%;
+      margin-bottom: 30px;
+    }
+
+    @include tablet {
+      margin-left: -5px;
+      width: 98%;
+      margin-bottom: 30px;
+    }
   }
 
   .selectContainer {
     width: 290px;
     margin-left: 84px;
 
+    @include mobileDesign {
+      margin-left: -5px;
+      width: 98%;
+      margin-bottom: 30px;
+    }
+
     @include tablet {
-      margin-left: 0;
+      width: 98%;
+      margin-left: -5px;
+      margin-bottom: 30px;
       margin-top: 32px;
     }
 
