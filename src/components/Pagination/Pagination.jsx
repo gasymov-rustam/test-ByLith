@@ -1,24 +1,31 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 
 import { useGlobalContext } from '../../app';
-import { useCountOnPage } from '../../shared';
+import { useCountOnPage, useSearchParamsState } from '../../shared';
 
 import cls from './Pagination.module.scss';
 
 export const Pagination = memo(() => {
   const count = useCountOnPage();
   const { state, methods } = useGlobalContext();
-  const { data } = state;
+  const { data, currentPage } = state;
   const products = data?.data;
   const pageCount = Math.ceil(products?.length / count);
+  const [value, setValue] = useSearchParamsState({ name: 'page' });
 
   const handlePageClick = useCallback(
     ({ selected }) => {
       methods.setCurrentPage(selected + 1);
+      setValue(selected + 1);
     },
-    [methods],
+    [methods, setValue],
   );
+
+  useEffect(() => {
+    setValue(currentPage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!pageCount) return null;
 
@@ -39,6 +46,7 @@ export const Pagination = memo(() => {
       previousClassName={cls.previous}
       nextClassName={cls.next}
       pageClassName={cls.page}
+      forcePage={+value - 1}
     />
   );
 });
