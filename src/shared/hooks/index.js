@@ -5,5 +5,6 @@ export { useEventListener } from './useEventListener/useEventListener';
 export { useFetch } from './useFetch';
 export { useMethods } from './useMethods';
 export { useMobile } from './useMobile/useMobile';
+export { useSearchParam } from './useSearchParam';
 export { getSearchParam, setSearchParam, useSearchParamsState } from './useSearchParamsState';
 export { useVariants } from './useVariants';
