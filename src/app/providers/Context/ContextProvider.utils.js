@@ -1,3 +1,5 @@
+import { setUrlParam } from '../../../shared';
+
 export const reducer = {
   addToCart(state, payload) {
     state.cart.push(payload);
@@ -17,6 +19,7 @@ export const reducer = {
   },
   setCurrentPage(state, payload) {
     state.currentPage = payload;
+    setUrlParam('page', payload);
   },
   setImages(state, payload) {
     const newImages = state.product?.data?.images.filter((image) => image.url !== payload.url);

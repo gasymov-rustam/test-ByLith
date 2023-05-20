@@ -1,7 +1,17 @@
 import { useCallback, useEffect, useState } from 'react';
 
+export const setUrlParam = (param, value) => {
+  const url = new URL(window.location.href);
+  url.searchParams.set(param, value);
+  window.history.pushState({}, '', url.toString());
+};
+
+export const geUrlParam = (param) => {
+  return new URLSearchParams(window.location.search).get(param);
+};
+
 export const useSearchParam = (param) => {
-  const getValue = useCallback(() => new URLSearchParams(window.location.search).get(param), [param]);
+  const getValue = useCallback(() => geUrlParam(param), [param]);
 
   const [value, setValue] = useState(getValue);
 
@@ -23,9 +33,7 @@ export const useSearchParam = (param) => {
 
   const setSearchUrl = useCallback(
     (value) => {
-      const url = new URL(window.location.href);
-      url.searchParams.set(param, value);
-      window.history.pushState({}, '', url.toString());
+      setUrlParam(param, value);
     },
     [param],
   );

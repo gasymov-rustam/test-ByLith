@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useMemo } from 'react';
 
-import { REQUESTS } from '../../../shared';
+import { REQUESTS, geUrlParam } from '../../../shared';
 import { useFetch, useMethods } from '../../../shared/hooks';
+import { Paths } from '../Router';
 
 import { reducer } from './ContextProvider.utils';
 
@@ -32,6 +33,14 @@ export const ContextProvider = ({ children }) => {
     window.localStorage.setItem('data', JSON.stringify(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, error, isLoading]);
+
+  useEffect(() => {
+    if (window.location.pathname === Paths.HOME) {
+      const param = geUrlParam('page');
+
+      methods.setCurrentPage(param ? +param : 1);
+    }
+  }, [methods]);
 
   const value = useMemo(() => ({ state, methods }), [state, methods]);
 

@@ -1,1 +1,1 @@
-export { useSearchParam } from './useSearchParam';
+export { geUrlParam, setUrlParam, useSearchParam } from './useSearchParam';
